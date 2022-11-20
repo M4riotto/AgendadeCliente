@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt - BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Avaliativo de "Linguagem de Programação"</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/custom.css">
+   <!--  -->
+</head>
+<body onload="loadProductions()">
+    <div class="wrapper">
+        
+        <header>
+            <button onclick="showModal('#modal-cadastrar')">cadastrar Cliente</button>
+
+            <div class="f-flex text-center">
+                <img src="assets/img/logo.svg" alt="Event MASTER" width="60px" height="60px">
+                <h3>Event MASTER</h3>
+            </div>
+
+            <a href="agenda.html">Agenda</a>
+
+        </header>
+
+        <hr>
+
+        <section class="container">
+            
+            <h1 class="section-title text-center" style="font-size:60px; margin-bottom: 40px;">Controle de clientes</h1>
+            <article id="eventos">
+
+
+                <div class="table table-striped table-dark" >
+                    <table border="1">
+                        <tr>
+                            <th>nome</th>
+                            <th>email</th>
+                            <th>numero</th>
+                            <th>cpf</th>
+                            <th>Deletar</th>
+                            <th>Editar</th>
+                        </tr>
+                        <tbody id="corpo1">
+            
+                        </tbody>
+                        
+                        
+                    </table>
+                </div>
+            </article>
+        </section>
+
+    </div><!--wrapper-->
+
+    
+    
+    <hr>
+
+    <footer>
+        
+        <div>
+            <p class="text-center">Event Master | Todos os direitos reservados <br>
+            © Vítor Moreira</p>
+        </div>
+    </footer>
+
+            <div class="modal" id="modal-cadastrar" onclick="hideModal('#modal-cadastrar', event)">
+                <div class="modal-body">
+                    <h1>Cadastrar evento</h1>
+                    <form onsubmit="insert(event)">
+
+                        <label for="nome">nome:</label>
+                        <input type="text" name="nome">
+                        <label for="email">email:</label>
+                        <input type="text" name="email">
+                        <label for="numero">numero:</label>
+                        <input type="text" name="numero">
+                        <label for="cpf">cpf:</label>
+                        <input type="text" name="cpf">
+
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-cadastrar-local" onclick="hideModal('#modal-cadastrar-local', event)">
+                <div class="modal-body">
+                    <h1>Cadastrar mais informações</h1>
+                    <form onsubmit="insert2(event)">
+                        <label for="endereco">endereco:</label>
+                        <input type="text" name="endereco">
+                        <label for="dia">data:</label>
+                        <input type="text" name="dia">
+                        <label for="hora">hora:</label>
+                        <input type="text" name="hora">
+                        <label for="cpf">cpf:</label>
+                        <input type="text" name="cpf">
+
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+
+    
+    <script src="assets/script/main.js"></script>
+</body>
+</html>
