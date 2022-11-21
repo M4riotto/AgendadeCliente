@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Nov-2022 às 01:38
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 21-Nov-2022 às 21:47
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cdsagenda`
+-- Estrutura da tabela `agenda`
 --
 
-CREATE TABLE `cdsagenda` (
+CREATE TABLE `agenda` (
   `id` int(11) NOT NULL,
   `dia` varchar(15) NOT NULL,
   `horario` varchar(10) NOT NULL,
@@ -39,11 +39,11 @@ CREATE TABLE `cdsagenda` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `eventos`
+-- Estrutura da tabela `clientes`
 --
 
-CREATE TABLE `eventos` (
-  `ID` int(11) NOT NULL,
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `email` varchar(200) NOT NULL,
   `numero` varchar(10) NOT NULL,
@@ -51,36 +51,43 @@ CREATE TABLE `eventos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome`, `email`, `numero`, `cpf`) VALUES
+(66, 'vitor', 'siqueira.nicolau@soulinda.com.br', '1298876707', '49040128871');
+
+--
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `cdsagenda`
+-- Índices para tabela `agenda`
 --
-ALTER TABLE `cdsagenda`
+ALTER TABLE `agenda`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `eventos`
+-- Índices para tabela `clientes`
 --
-ALTER TABLE `eventos`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `cdsagenda`
+-- AUTO_INCREMENT de tabela `agenda`
 --
-ALTER TABLE `cdsagenda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE `agenda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT de tabela `eventos`
+-- AUTO_INCREMENT de tabela `clientes`
 --
-ALTER TABLE `eventos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
