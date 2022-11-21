@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
    <!--  -->
 </head>
-<body onload="loadProductions2()">
+<body onload="loadAgendas()">
     <div class="wrapper">
         
         <header>
@@ -21,7 +21,7 @@
                 <h3>Event MASTER</h3>
             </div>
 
-            <button onclick="showModal('#modal-cadastrar-local')">cadastrar Agenda
+            <button onclick="showModalAgenda('#modal-cadastrar-local')">cadastrar Agenda
             
             </button>
         </header>
@@ -69,10 +69,10 @@
         </div>
     </footer>
 
-            <div class="modal" id="modal-cadastrar-local" onclick="hideModal('#modal-cadastrar-local', event)">
+            <div class="modal" id="modal-cadastrar-local" onclick="hideModalAgenda('#modal-cadastrar-local', event)">
                 <div class="modal-body">
                     <h1>Cadastrar mais informações</h1>
-                    <form onsubmit="insert2(event)">
+                    <form onsubmit="insertAgenda(event)">
                         <label for="dia">dia:</label>
                         <input type="text" name="dia">
                         <label for="horario">horario:</label>
@@ -89,7 +89,28 @@
                 </div>
             </div>
 
+            <div class="modal" id="modal-editar" onclick="hideModalAgenda('#modal-editar', event)">
+                <div class="modal-body">
+                    <h1>Editar Agenda</h1>
+                    <form onsubmit="editAgenda(event)">
+                        
+                        <label for="dia">dia:</label>
+                        <input type="text" name="dia">
+                        <label for="horario">horario:</label>
+                        <input type="text" name="horario">
+                        <label for="comquem">com quem:</label>
+                        <input type="text" name="comquem">
+                        <label for="assunto">assunto:</label>
+                        <input type="text" name="assunto">
+                        <label for="topico">tópico:</label>
+                        <input type="text" name="topico">
+                        <input type="hidden" name="id" />
+                        <button type="submit">Editar</button>
+                    </form>
+                </div>
+            </div>
+
     
-    <script src="assets/script/main2.js"></script>
+    <script src="assets/script/main.js"></script>
 </body>
 </html>
