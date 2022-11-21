@@ -1,10 +1,10 @@
-function showModal(idModal){ 
+function showModalCliente(idModal){ 
     //idModal é usado para avisar que há um parâmetro lá no html, o texto pode ser qualquer coisa para avisar que o parâmetro será um texto.
     const modal = document.querySelector(idModal)
     modal.style.display = "flex"
 }
 
-function hideModal(idModal, event) {
+function hideModalCliente(idModal, event) {
     if(event.target.className === 'modal'){
         const modal = document.querySelector(idModal)
         modal.style.display = 'none'
@@ -12,7 +12,7 @@ function hideModal(idModal, event) {
 }
 
 //forçar o fechamento após receber a mensagem de alerta
-function closeAllModal() {
+function closeAllModalCliente() {
     const modais = document.querySelectorAll('.modal')
     modais.forEach(modal => {
         modal.style.display = 'none'
@@ -20,40 +20,40 @@ function closeAllModal() {
 }
 
 //toda a resposta através do servidor:
-async function insert(event) {
+async function insertCliente(event) {
     event.preventDefault() //tira a forma padrão.
     const formData = new FormData(event.target)
-    const response = await fetch('backend/insert.php', {
+    const response = await fetch('backend/insertClientes.php', {
         method: 'POST',
         body: formData
     })
     const result = await response.json()
     if (result?.success) {
-        closeAllModal() 
-        alert('Seu filme '+result.data.titulo+' foi cadastrado com sucesso!');
-        loadProductions();
+        closeAllModalCliente() 
+        alert('Seu Cliente '+result.data.nome+' foi cadastrado com sucesso!');
+        loadClientes();
     }
 }
 
-async function loadProductions() {
-    const response = await fetch('backend/list.php')
+async function loadClientes() {
+    const response = await fetch('backend/listClientes.php')
     const result = await response.json()
     if (result?.success) {
-        const listaEvent = document.querySelector('#corpo1')
-        listaEvent.innerHTML = ''
-        const event = result.data
-        event.map((eventos) => {
-            listaEvent.innerHTML += `
+        const listaClientes = document.querySelector('#corpo1')
+        listaClientes.innerHTML = ''
+        const clientes = result.data
+        clientes.map((cliente) => {
+            listaClientes.innerHTML += `
 
                 <tr>
-                    <td>${eventos.nome}</td>
-                    <td>${eventos.email}</td>
-                    <td>${eventos.numero}</td>
-                    <td>${eventos.cpf}</td>
+                    <td>${cliente.nome}</td>
+                    <td>${cliente.email}</td>
+                    <td>${cliente.numero}</td>
+                    <td>${cliente.cpf}</td>
 
-                    <td><img src="assets/img/logo.svg" widht="30px" height="30px" alta="Apagar" onclick="deleteProduction(${eventos.id})" /></td>
+                    <td><img src="assets/img/logo.svg" widht="30px" height="30px" alt="Apagar" onclick="deleteCliente(${cliente.id})" /></td>
                     
-                    <td><img src="" alta="Editar" onclick="loadProductoinData(${eventos.id})" /></td>
+                    <td><img src="assets/img/logo.svg" widht="30px" height="30px" alt="Editar" onclick="loadClienteData(${cliente.id})" /></td>
                 </tr> `
      
         })
@@ -63,11 +63,48 @@ async function loadProductions() {
     }       
 }
 
-async function deleteProduction(id) {
-    const response = await fetch('backend/delete.php?id='+id)
+async function deleteCliente(id) {
+    const response = await fetch('backend/deleteClientes.php?id='+id)
     const result = await response.json()               
     if (result?.success) {
-        alert('Seu filme foi deletado com sucesso!');
-        loadProductions();
+        alert('Seu ' +result.data.nome+ ' foi excluido com sucesso!');
+        loadClientes();
+    }
+}
+
+async function loadClienteData(id) {
+    const response = await fetch('backend/get-cliente-by-id.php?id='+id)
+    const result = await response.json()               
+    if (result?.success) {
+        showModalCliente('#modal-editar')
+        const nome = document.querySelector('#modal-editar input[name=nome]')
+        nome.value = result.data.nome
+
+        const email = document.querySelector('#modal-editar input[name=email]')
+        email.value = result.data.email
+
+        const numero = document.querySelector('#modal-editar input[name=numero]')
+        numero.value = result.data.numero
+
+        const cpf = document.querySelector('#modal-editar input[name=cpf]')
+        cpf.value = result.data.cpf
+
+        const id = document.querySelector('#modal-editar input[name=id]')
+        id.value = result.data.id
+    }
+}
+
+async function editCliente(event) {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const response = await fetch('backend/editClientes.php?',{
+        method: 'POST',
+        body: formData
+    })
+    const result = await response.json()
+    if (result?.success) {
+        closeAllModalCliente()
+        alert('Seu cliente ' + result.data.nome+' foi editado com sucesso!');
+        loadClientes()
     }
 }

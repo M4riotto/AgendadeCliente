@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="assets/css/custom.css">
    <!--  -->
 </head>
-<body onload="loadProductions()">
+<body onload="loadClientes()">
     <div class="wrapper">
         
         <header>
-            <button onclick="showModal('#modal-cadastrar')">cadastrar Cliente</button>
+            <button onclick="showModalCliente('#modal-cadastrar')">cadastrar Cliente</button>
 
             <div class="f-flex text-center">
                 <img src="assets/img/logo.svg" alt="Event MASTER" width="60px" height="60px">
@@ -29,7 +29,7 @@
         <section class="container">
             
             <h1 class="section-title text-center" style="font-size:60px; margin-bottom: 40px;">Controle de clientes</h1>
-            <article id="eventos">
+            <article id="clientes">
 
 
                 <div class="table table-striped table-dark" >
@@ -66,10 +66,10 @@
         </div>
     </footer>
 
-            <div class="modal" id="modal-cadastrar" onclick="hideModal('#modal-cadastrar', event)">
+            <div class="modal" id="modal-cadastrar" onclick="hideModalCliente('#modal-cadastrar', event)">
                 <div class="modal-body">
                     <h1>Cadastrar evento</h1>
-                    <form onsubmit="insert(event)">
+                    <form onsubmit="insertCliente(event)">
 
                         <label for="nome">nome:</label>
                         <input type="text" name="nome">
@@ -85,20 +85,22 @@
                 </div>
             </div>
 
-            <div class="modal" id="modal-cadastrar-local" onclick="hideModal('#modal-cadastrar-local', event)">
+
+            <div class="modal" id="modal-editar" onclick="hideModalCliente('#modal-editar', event)">
                 <div class="modal-body">
-                    <h1>Cadastrar mais informações</h1>
-                    <form onsubmit="insert2(event)">
-                        <label for="endereco">endereco:</label>
-                        <input type="text" name="endereco">
-                        <label for="dia">data:</label>
-                        <input type="text" name="dia">
-                        <label for="hora">hora:</label>
-                        <input type="text" name="hora">
+                    <h1>Editar Cliente</h1>
+                    <form onsubmit="editCliente(event)">
+                        
+                        <label for="nome">nome:</label>
+                        <input type="text" name="nome">
+                        <label for="email">email:</label>
+                        <input type="text" name="email">
+                        <label for="numero">numero:</label>
+                        <input type="text" name="numero">
                         <label for="cpf">cpf:</label>
                         <input type="text" name="cpf">
-
-                        <button type="submit">Cadastrar</button>
+                        <input type="hidden" name="id" />
+                        <button type="submit">Editar</button>
                     </form>
                 </div>
             </div>
