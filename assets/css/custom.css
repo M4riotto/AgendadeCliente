@@ -20,6 +20,10 @@
     --grey-800: #d3d3d3;
     --grey-1000:#fff;
 }
+html,
+body, .footer{
+    height: 100%;
+}
 
 header{
     background-color: var(--secundary-dark);
@@ -57,6 +61,7 @@ header > button:hover{
     padding-bottom: 10px;
 }
 
+
 a{
     color: var(--grey-1000);
     font-size: 2rem;
@@ -78,6 +83,7 @@ table, th, td{
     color: var(--grey-1000);
 }
 
+
 .modal{
     background-color: #0c0c0c85;
     position: absolute;
@@ -91,7 +97,7 @@ table, th, td{
 }
 
 .modal .modal-body{
-    width: 600px;
+    max-width: 600px;
     border-radius: 15px;
     background: var(--grey-1000);
     color: var(--grey-0);

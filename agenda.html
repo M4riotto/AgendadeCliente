@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
    <!--  -->
 </head>
-<body onload="loadAgendas()">
+<body onload="loadAgendas()" style="min-height: 100%">
     <div class="wrapper">
         
         <header>
@@ -18,10 +18,10 @@
 
             <div class="f-flex text-center">
                 <img src="assets/img/logo.svg" alt="Event MASTER" width="60px" height="60px">
-                <h3>Event MASTER</h3>
+                <h3>Master Controller </h3>
             </div>
 
-            <button onclick="showModalAgenda('#modal-cadastrar-local')">cadastrar Agenda
+            <button onclick="showModal('#modal-cadastrar-local')">cadastrar Agenda
             
             </button>
         </header>
@@ -64,14 +64,14 @@
     <footer>
         
         <div>
-            <p class="text-center">Event Master | Todos os direitos reservados <br>
+            <p class="text-center">Master Controller | Todos os direitos reservados <br>
             © Vítor Moreira</p>
         </div>
     </footer>
 
-            <div class="modal" id="modal-cadastrar-local" onclick="hideModalAgenda('#modal-cadastrar-local', event)">
+            <div class="modal" id="modal-cadastrar-local" onclick="hideModal('#modal-cadastrar-local', event)">
                 <div class="modal-body">
-                    <h1>Cadastrar mais informações</h1>
+                    <h1>Cadastrar Agenda</h1>
                     <form onsubmit="insertAgenda(event)">
                         <label for="dia">dia:</label>
                         <input type="text" name="dia">
@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="modal" id="modal-editar" onclick="hideModalAgenda('#modal-editar', event)">
+            <div class="modal" id="modal-editar" onclick="hideModal('#modal-editar', event)">
                 <div class="modal-body">
                     <h1>Editar Agenda</h1>
                     <form onsubmit="editAgenda(event)">

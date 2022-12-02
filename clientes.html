@@ -13,11 +13,11 @@
     <div class="wrapper">
         
         <header>
-            <button onclick="showModalCliente('#modal-cadastrar')">cadastrar Cliente</button>
+            <button onclick="showModal('#modal-cadastrar')">cadastrar Cliente</button>
 
             <div class="f-flex text-center">
                 <img src="assets/img/logo.svg" alt="Event MASTER" width="60px" height="60px">
-                <h3>Event MASTER</h3>
+                <h3>Master Controller </h3>
             </div>
 
 
@@ -62,14 +62,14 @@
     <footer>
         
         <div>
-            <p class="text-center">Event Master | Todos os direitos reservados <br>
+            <p class="text-center">Master Controller | Todos os direitos reservados <br>
             © Vítor Moreira</p>
         </div>
     </footer>
 
-            <div class="modal" id="modal-cadastrar" onclick="hideModalCliente('#modal-cadastrar', event)">
+            <div class="modal" id="modal-cadastrar" onclick="hideModal('#modal-cadastrar', event)">
                 <div class="modal-body">
-                    <h1>Cadastrar evento</h1>
+                    <h1>Cadastrar Cliente</h1>
                     <form onsubmit="insertCliente(event)">
 
                         <label for="nome">nome:</label>
@@ -87,7 +87,7 @@
             </div>
 
 
-            <div class="modal" id="modal-editar" onclick="hideModalCliente('#modal-editar', event)">
+            <div class="modal" id="modal-editar" onclick="hideModal('#modal-editar', event)">
                 <div class="modal-body">
                     <h1>Editar Cliente</h1>
                     <form onsubmit="editCliente(event)">

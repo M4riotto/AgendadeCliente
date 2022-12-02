@@ -29,7 +29,7 @@ async function insertCliente(event) {
     })
     const result = await response.json()
     if (result?.success) {
-        closeAllModalCliente() 
+        closeAllModal() 
         alert('Seu Cliente '+result.data.nome+' foi cadastrado com sucesso!');
         loadClientes();
     }
@@ -103,7 +103,7 @@ async function editCliente(event) {
     })
     const result = await response.json()
     if (result?.success) {
-        closeAllModalCliente()
+        closeAllModal()
         alert('Seu cliente ' + result.data.nome+' foi editado com sucesso!');
         loadClientes()
     }
@@ -121,7 +121,7 @@ async function insertAgenda(event) {
     })
     const result = await response.json()
     if (result?.success) {
-        closeAllModalAgenda() 
+        closeAllModal() 
         alert('A data do seu compromisso é dia: '+result.data.dia);
         loadAgendas();
     }
@@ -168,7 +168,7 @@ async function loadAgendaData(id) {
     const response = await fetch('backend/get-agenda-by-id.php?id='+id)
     const result = await response.json()               
     if (result?.success) {
-        showModalAgenda('#modal-editar')
+        showModal('#modal-editar')
         const dia = document.querySelector('#modal-editar input[name=dia]')
         dia.value = result.data.dia
 
@@ -198,7 +198,7 @@ async function editAgenda(event) {
     })
     const result = await response.json()
     if (result?.success) {
-        closeAllModalAgenda()
+        closeAllModal()
         alert('Seu Compromisso com ' + result.data.comquem+' foi editado com sucesso!');
         loadAgendas()
     }
