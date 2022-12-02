@@ -1,10 +1,10 @@
-function showModalCliente(idModal){ 
+function showModal(idModal){ 
     //idModal é usado para avisar que há um parâmetro lá no html, o texto pode ser qualquer coisa para avisar que o parâmetro será um texto.
     const modal = document.querySelector(idModal)
     modal.style.display = "flex"
 }
 
-function hideModalCliente(idModal, event) {
+function hideModal(idModal, event) {
     if(event.target.className === 'modal'){
         const modal = document.querySelector(idModal)
         modal.style.display = 'none'
@@ -12,7 +12,7 @@ function hideModalCliente(idModal, event) {
 }
 
 //forçar o fechamento após receber a mensagem de alerta
-function closeAllModalCliente() {
+function closeAllModal() {
     const modais = document.querySelectorAll('.modal')
     modais.forEach(modal => {
         modal.style.display = 'none'
@@ -67,7 +67,7 @@ async function deleteCliente(id) {
     const response = await fetch('backend/deleteClientes.php?id='+id)
     const result = await response.json()               
     if (result?.success) {
-        alert('Seu ' +result.data.nome+ ' foi excluido com sucesso!');
+        alert('Seu Cliente foi excluido com sucesso!');
         loadClientes();
     }
 }
@@ -109,28 +109,7 @@ async function editCliente(event) {
     }
 }
 
-/*JavaScript 2°Crud*/
-
-function showModalAgenda(idModal){ 
-    //idModal é usado para avisar que há um parâmetro lá no html, o texto pode ser qualquer coisa para avisar que o parâmetro será um texto.
-    const modal = document.querySelector(idModal)
-    modal.style.display = "flex"
-}
-
-function hideModalAgenda(idModal, event) {
-    if(event.target.className === 'modal'){
-        const modal = document.querySelector(idModal)
-        modal.style.display = 'none'
-    }
-}
-
-//forçar o fechamento após receber a mensagem de alerta
-function closeAllModalAgenda() {
-    const modais = document.querySelectorAll('.modal')
-    modais.forEach(modal => {
-        modal.style.display = 'none'
-    })
-}
+//2° CRUD
 
 //toda a resposta através do servidor:
 async function insertAgenda(event) {
